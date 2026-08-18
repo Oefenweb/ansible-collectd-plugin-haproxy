@@ -7,8 +7,8 @@
     state: directory
     recurse: true
   when:
-    - ansible_distribution == 'Ubuntu'
-    - ansible_distribution_major_version is version('18', '>=')
+    - ansible_facts['distribution'] == 'Ubuntu'
+    - ansible_facts['distribution_major_version'] is version('18', '>=')
 
 - name: install dependencies
   ansible.builtin.apt:
@@ -24,5 +24,5 @@
     path: /etc/default/collectd
     line: 'LD_PRELOAD=/usr/lib/python3.8/config-3.8-x86_64-linux-gnu/libpython3.8.so'
   when:
-    - ansible_distribution == 'Ubuntu'
-    - ansible_distribution_major_version is version('20', '>=')
+    - ansible_facts['distribution'] == 'Ubuntu'
+    - ansible_facts['distribution_major_version'] is version('20', '>=')
