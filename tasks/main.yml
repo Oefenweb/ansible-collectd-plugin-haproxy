@@ -18,7 +18,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
   tags:
     - configuration
     - collectd-plugin-haproxy
@@ -57,7 +57,7 @@
     state: directory
     owner: root
     group: root
-    mode: 0755
+    mode: '0755'
   with_items: "{{ _stat_directories.results }}"
   when: not item.stat.exists
   tags:
@@ -72,7 +72,7 @@
     dest: "{{ collectd_plugin_haproxy_configuration_file }}"
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
   notify: restart collectd
   tags:
     - configuration
